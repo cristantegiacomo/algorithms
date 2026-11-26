@@ -1,0 +1,60 @@
+============================================================
+GUIDA RAPIDA GIT & GITHUB (REPO ALGORITHMS)
+============================================================
+
+1. PRIMA PUBBLICAZIONE (SOLO LA PRIMA VOLTA)
+------------------------------------------------------------
+1. Crea una nuova repository vuota su GitHub (senza README ne .gitignore).
+2. Apri il terminale dentro la cartella `algorithms/` ed esegui:
+
+   git init
+   git add .
+   git commit -m "init: add suffix_array.py"
+   git branch -M main
+   git remote add origin <INCOLLA_QUI_URL_DELLA_REPO>
+   git push -u origin main
+
+
+2. AGGIUNGERE O AGGIORNARE UN ALGORITMO (OGNI VOLTA)
+------------------------------------------------------------
+   git status
+   git add .
+   git commit -m "add: nome_algoritmo.py"
+   git push
+
+Prefissi utili per i commit:
+- init:     primo commit della repo
+- add:      nuovo algoritmo o nuovo file
+- fix:      correzione di un bug o edge case
+- refactor: pulizia codice / rinomina variabili
+- docs:     aggiornamento README o commenti
+
+
+3. COME NASCONDERE QUESTO FILE (E I FILE TEMPORANEI) A GITHUB
+------------------------------------------------------------
+Crea un file chiamato `.gitignore` nella cartella `algorithms/`
+e scrivici dentro:
+
+   git_notes.txt
+   __pycache__/
+   *.pyc
+   .DS_Store
+
+(Se avevi gia fatto `git add git_notes.txt` in passato,
+rimuovilo dal tracciamento senza cancellarlo dal disco con:
+   git rm --cached git_notes.txt
+)
+
+
+4. SCORCIATOIA TERMINALE MACOS (~/.zshrc)
+------------------------------------------------------------
+Aggiungi questa funzione in fondo al file `~/.zshrc`:
+
+   gpush() {
+       git add . && git commit -m "${1:-update}" && git push
+   }
+
+Ricarica il terminale con `source ~/.zshrc`.
+D'ora in poi ti bastera scrivere un solo comando:
+
+   gpush "add: rolling_hash.py"
