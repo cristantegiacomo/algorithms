@@ -35,4 +35,4 @@ is_cycle = not union(1, 3)          # True (1 e 3 già connessi)
 connected = find(1) == find(3)      # True
 disconnected = find(1) == find(4)   # False
 size = rank[find(2)]                # 3 (leggere sempre tramite find(x))
-roots = {find(i) for i in range(1, n + 1)}  # {1, 4, 5} — O(N · α(N))
+roots = {find(i) for i in range(1, n + 1)}  # {1, 4, 5} — O(N · α(N)). nota itera su n non su components e trasforma in set {}
